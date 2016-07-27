@@ -396,6 +396,15 @@ person.sayName(); // "张三"
 
 上面代码中，person是一个立即执行的Class的实例。
 
+类似于java中的匿名内部类
+```java
+Runnable runner = new Runnable(){
+    public void run(){
+        System.out.println("i am a runner");
+    }
+};
+```
+
 ### 私有方法
 
 私有方法是常见需求，但ES6不提供，只能通过变通方法模拟实现。
