@@ -624,7 +624,11 @@ Object.setPrototypeOf = function (obj, proto) {
 ```javascript
 Object.setPrototypeOf(B.prototype, A.prototype);
 // 等同于
+//延长了B.prototype的原型链
 B.prototype.__proto__ = A.prototype;
+//重新定义了B的原型对象
+B.prototype = A.prototype; 
+
 
 Object.setPrototypeOf(B, A);
 // 等同于
