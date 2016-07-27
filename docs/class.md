@@ -674,6 +674,18 @@ A.__proto__ === Function.prototype // true
 A.prototype.__proto__ === Object.prototype // true
 ```
 
+
+```javascript
+function AnyFunction(param1,param2){console.log('the body of the Function');}
+//等价于
+var AnyFuntion = new Function("param1","param2","console.log('the body of the Function');");
+//所以
+AnyFunction.__proto__ = Function.prototype //函数的call apply等静态方法就是申明在Function.prototype这个对象上的。
+//对于Function这个构造函数
+Function.prototype.__proto__.constructor.name === "Object"
+//基本上Function.prototype.__proto__.__proto__就是一个空对象了
+```
+
 这种情况下，A作为一个基类（即不存在任何继承），就是一个普通函数，所以直接继承`Funciton.prototype`。但是，`A`调用后返回一个空对象（即`Object`实例），所以`A.prototype.__proto__`指向构造函数（`Object`）的`prototype`属性。
 
 第三种特殊情况，子类继承`null`。
