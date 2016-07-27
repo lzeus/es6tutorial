@@ -1,5 +1,49 @@
 # Class
 
+## Class语法出现之前
+### 引用类型定义
+```javascript
+function People(name,age,sex){
+  this.name = name;
+  this.age = age;
+  this.sex = sex;//0男1女
+}
+
+People.say = function(){
+    console.log("i can say");
+}
+
+People.walk = function(){
+    console.log("i can walk");
+}
+
+People.eat = function(){
+    console.log("i can eat");
+}
+
+People.study = function(){
+    console.log("i can study");
+}
+
+var people1 = new People("小明",30,0);
+var people2 = new People("小红",20,1);
+
+
+var peopleSuperTypePrototype = new People("",0,0);
+function Man(name,age){
+    People.call(this,name,age,0);
+}
+Man.prototype = peopleSuperTypePrototype;
+
+function Woman(name,age){
+    People.call(this,name,age,1);
+}
+Woman.prototype = peopleSuperTypePrototype;
+
+var man1 = new Man("小明",30);
+var woman1 = new Woman("小红",20);
+```
+
 ## Class基本语法
 
 ### 概述
